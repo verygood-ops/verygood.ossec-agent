@@ -36,7 +36,6 @@
 
 - name: Autostart ossec
   service:
-    name=ossec-authd
+    name=ossec
     state=restarted
     enabled=yes
-  when: ossec_service.changed
