@@ -21,6 +21,7 @@
     dest=/var/ossec/etc/ossec.conf
     owner=root
     group=ossec
+  notify: restart ossec
 
 - name: Register agent
   command: /var/ossec/bin/agent-auth -m {{ossec_server}}
@@ -32,10 +33,3 @@
     src=ossec
     dest=/etc/init.d
     mode=0755
-  register: ossec_service
-
-- name: Autostart ossec
-  service:
-    name=ossec
-    state=restarted
-    enabled=yes
