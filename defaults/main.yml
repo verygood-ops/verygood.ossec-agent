@@ -1,4 +1,10 @@
 ---
+
+ossec_server: localhost
+ossec_decoders: ""
+ossec_rootcheck_system_audit: ""
+ossec_local_commands: ""
+
 ossec_syscheck_frequency: 72000
 
 ossec_syscheck_directories:

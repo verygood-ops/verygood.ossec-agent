@@ -1,17 +1,18 @@
-Role Name
-=========
+# Ansible OSSEC Agent Role
+
+[![Circle CI](
+https://circleci.com/gh/verygood-ops/verygood.ossec-agent.svg
+)](https://circleci.com/gh/verygood-ops/verygood.ossec-agent)
 
 This roles setup a OSSEC Agent
 
-Requirements
-------------
+#### Requirements
 
 This role is only tested on Ubuntu trusty. You need to have a OSSEC server running. The server needs to be
 running before the client because the client needs to get the credentials from the server, otherwise it
 won't be able to talk to the server until the next restart.
 
-Role Variables
---------------
+#### Role Variables
 
 The role uses the Ubuntu package defaults. The below all the options with their defaults as examples, but list 
 items are truncated. Please view `defaults/main.yml` for a full list.
@@ -96,8 +97,7 @@ ossec_localfile:
     location: /var/log/messages
 ```
 
-Example Playbook
-----------------
+#### Example Playbook
 
     - hosts: agents
       vars:
@@ -105,7 +105,6 @@ Example Playbook
       roles:
          - verygood.ossec-agent
 
-License
--------
+#### License
 
 BSD
