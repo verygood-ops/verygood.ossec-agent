@@ -12,7 +12,7 @@
 #
 ### END INIT INFO
 
-. /etc/ossec-init.conf
+. /var/ossec/etc/ossec-init.conf
 if [ "X${DIRECTORY}" = "X" ]; then
     DIRECTORY="/var/ossec"
 fi
