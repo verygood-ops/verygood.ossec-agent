@@ -35,6 +35,11 @@
     owner=root
     group=ossec
 
+- name: Remove previous client configuration
+  file:
+    state=absent
+    path=/var/ossec/etc/client.keys
+
 - name: Register agent
   command: /var/ossec/bin/agent-auth -m {{ossec_server}}
   args:
