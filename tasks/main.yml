@@ -46,6 +46,7 @@
     creates: /var/ossec/etc/client.keys
   notify: restart ossec
   when: ossec_agent_register
+  ignore_errors: yes
 
 - name: Copy init.d for ossec
   copy:
