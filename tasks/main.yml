@@ -44,9 +44,3 @@
   notify: restart ossec
   when: ossec_agent_register
   ignore_errors: yes
-
-- name: Copy init.d for ossec
-  copy:
-    src=ossec
-    dest=/etc/init.d
-    mode=0755
