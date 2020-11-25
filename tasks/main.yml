@@ -1,15 +1,12 @@
 ---
 - name: Add apt gpg key
   apt_key:
-    # If you need to change the key use at least gpg --keyid-format long keyfile
-    # the 32-bit short format is easily collided and insecure.
-    url=http://ossec.wazuh.com/repos/apt/conf/ossec-key.gpg.key
-    id=14B9C8DB9A1B1C65
+    url=https://packages.wazuh.com/key/GPG-KEY-WAZUH
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Add apt repository
   apt_repository:
-    repo='deb http://ossec.wazuh.com/repos/apt/ubuntu/ {{ansible_distribution_release}} main'
+    repo='deb https://packages.wazuh.com/3.x/apt/ stable main'
     state=present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
@@ -17,15 +14,15 @@
   yum_repository:
     name=ossec.wazuh
     description='WAZUH OSSEC Repository - www.wazuh.com'
-    baseurl=http://ossec.wazuh.com/el/7/x86_64
+    baseurl=https://packages.wazuh.com/3.x/yum/
     gpgcheck=yes
-    gpgkey=http://ossec.wazuh.com/key/RPM-GPG-KEY-OSSEC
+    gpgkey=http://packages.wazuh.com/key/GPG-KEY-WAZUH
     enabled=yes
   when: ansible_distribution == 'Amazon'
 
 - name: Install
   package:
-    name=ossec-hids-agent
+    name=wazuh-agent
     state=latest
 
 - name: Add configuration
